@@ -17,7 +17,7 @@ public class ZenplateParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		TEXT=1, LPRACE=2, RPRACE=3, WS=4;
+		T__0=1, T__1=2, TEXT=3, LPRACE=4, RPRACE=5, WS=6;
 	public static final int
 		RULE_template = 0, RULE_statement = 1, RULE_text = 2, RULE_placeholder = 3;
 	private static String[] makeRuleNames() {
@@ -29,13 +29,13 @@ public class ZenplateParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, null, "'{'", "'}'"
+			null, "'{%'", "'}%'", null, "'{'", "'}'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "TEXT", "LPRACE", "RPRACE", "WS"
+			null, null, null, "TEXT", "LPRACE", "RPRACE", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -126,7 +126,7 @@ public class ZenplateParser extends Parser {
 			setState(11);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==TEXT || _la==LPRACE) {
+			while (_la==T__0 || _la==TEXT) {
 				{
 				{
 				setState(8);
@@ -191,7 +191,7 @@ public class ZenplateParser extends Parser {
 				text();
 				}
 				break;
-			case LPRACE:
+			case T__0:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(15);
@@ -258,8 +258,6 @@ public class ZenplateParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class PlaceholderContext extends ParserRuleContext {
-		public TerminalNode LPRACE() { return getToken(ZenplateParser.LPRACE, 0); }
-		public TerminalNode RPRACE() { return getToken(ZenplateParser.RPRACE, 0); }
 		public PlaceholderContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -287,7 +285,7 @@ public class ZenplateParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(20);
-			match(LPRACE);
+			match(T__0);
 			setState(24);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
@@ -305,7 +303,7 @@ public class ZenplateParser extends Parser {
 				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			}
 			setState(27);
-			match(RPRACE);
+			match(T__1);
 			}
 		}
 		catch (RecognitionException re) {
@@ -320,7 +318,7 @@ public class ZenplateParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0004\u001e\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001"+
+		"\u0004\u0001\u0006\u001e\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001"+
 		"\u0002\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0001\u0000\u0005\u0000"+
 		"\n\b\u0000\n\u0000\f\u0000\r\t\u0000\u0001\u0001\u0001\u0001\u0003\u0001"+
 		"\u0011\b\u0001\u0001\u0002\u0001\u0002\u0001\u0003\u0001\u0003\u0005\u0003"+
@@ -333,12 +331,12 @@ public class ZenplateParser extends Parser {
 		"\u0000\f\u0001\u0001\u0000\u0000\u0000\r\u000b\u0001\u0000\u0000\u0000"+
 		"\u000e\u0011\u0003\u0004\u0002\u0000\u000f\u0011\u0003\u0006\u0003\u0000"+
 		"\u0010\u000e\u0001\u0000\u0000\u0000\u0010\u000f\u0001\u0000\u0000\u0000"+
-		"\u0011\u0003\u0001\u0000\u0000\u0000\u0012\u0013\u0005\u0001\u0000\u0000"+
-		"\u0013\u0005\u0001\u0000\u0000\u0000\u0014\u0018\u0005\u0002\u0000\u0000"+
+		"\u0011\u0003\u0001\u0000\u0000\u0000\u0012\u0013\u0005\u0003\u0000\u0000"+
+		"\u0013\u0005\u0001\u0000\u0000\u0000\u0014\u0018\u0005\u0001\u0000\u0000"+
 		"\u0015\u0017\t\u0000\u0000\u0000\u0016\u0015\u0001\u0000\u0000\u0000\u0017"+
 		"\u001a\u0001\u0000\u0000\u0000\u0018\u0019\u0001\u0000\u0000\u0000\u0018"+
 		"\u0016\u0001\u0000\u0000\u0000\u0019\u001b\u0001\u0000\u0000\u0000\u001a"+
-		"\u0018\u0001\u0000\u0000\u0000\u001b\u001c\u0005\u0003\u0000\u0000\u001c"+
+		"\u0018\u0001\u0000\u0000\u0000\u001b\u001c\u0005\u0002\u0000\u0000\u001c"+
 		"\u0007\u0001\u0000\u0000\u0000\u0003\u000b\u0010\u0018";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());

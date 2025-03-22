@@ -1,18 +1,24 @@
 grammar Content;
 
-content : (statement)*;
+content : (statement)+;
 
 statement : expression;
 
 expression : identifier #variableExpression
-			| methodCall # methodCallExpression
-			| ifStatement # ifStatementExpression
-			;
-identifier : ID;
-methodCall : identifier.ID'(' ')';
-ifStatement : 'if' '(' expression ')' '{'
-		expression | STRING '}';
+            | methodCall #methodCallExpression
+            | ifStatement #ifstatementExpression
+            | interpolation #interpolationExpression
+            ;
 
-ID : [a-zA-Z_] [a-zA-Z0-9_]*;
+identifier : ID;
+methodCall : identifier ('.' ID)*;
+ifStatement : IF '(' condition ')' '{' expression '}' (ELSE '{' expression '}')?;
+condition : expression OP expression;
+interpolation : STRING ('+' expression)*? ;
+
+IF : 'if';
+ELSE : 'else';
+OP : '<' | '>' | '==' | '!=';
 STRING : '"' .*? '"';
+ID : [a-zA-Z_] [a-zA-Z0-9_]*;
 WS : [ \t\r\n]+ -> skip;

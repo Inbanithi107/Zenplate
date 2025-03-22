@@ -37,12 +37,19 @@ public interface ContentVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMethodCallExpression(ContentParser.MethodCallExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ifStatementExpression}
+	 * Visit a parse tree produced by the {@code ifstatementExpression}
 	 * labeled alternative in {@link ContentParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIfStatementExpression(ContentParser.IfStatementExpressionContext ctx);
+	T visitIfstatementExpression(ContentParser.IfstatementExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code interpolationExpression}
+	 * labeled alternative in {@link ContentParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterpolationExpression(ContentParser.InterpolationExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ContentParser#identifier}.
 	 * @param ctx the parse tree
@@ -61,4 +68,16 @@ public interface ContentVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIfStatement(ContentParser.IfStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ContentParser#condition}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCondition(ContentParser.ConditionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ContentParser#interpolation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterpolation(ContentParser.InterpolationContext ctx);
 }

@@ -3,7 +3,7 @@ grammar Zenplate;
 template : (statement)*;
 statement : text | placeholder;
 text : TEXT;
-placeholder : '{' .*? '}' ;
+placeholder : '{%' .*? '}%' ;
 
 TEXT : ~[{}]+ ;  // Matches anything except `{}`
 

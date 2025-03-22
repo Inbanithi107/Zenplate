@@ -2,6 +2,7 @@ package com.Techforge.Zenplate.Interpreter;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,6 +40,7 @@ public class ZenplateExecutor {
 		map.put("username", "inbanithi");
 		map.put("worker", "some");
 		map.put("hello", true);
+		map.put("users", Arrays.asList(new User("kaivn", "1234"), new User("praveen", "4321")));
 		
 		ZenplateEngine engine = new ZenplateEngine(map);
 		engine.visit(tree);
@@ -47,11 +49,5 @@ public class ZenplateExecutor {
 	}
 
 }
-class User{
-	String usenrame;
-	String password;
-	public User(String username, String password) {
-		this.usenrame = username;
-		this.password = password;
-	}
-}
+
+

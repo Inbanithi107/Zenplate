@@ -65,13 +65,25 @@ public class ContentBaseListener implements ContentListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfStatementExpression(ContentParser.IfStatementExpressionContext ctx) { }
+	@Override public void enterIfstatementExpression(ContentParser.IfstatementExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIfStatementExpression(ContentParser.IfStatementExpressionContext ctx) { }
+	@Override public void exitIfstatementExpression(ContentParser.IfstatementExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInterpolationExpression(ContentParser.InterpolationExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInterpolationExpression(ContentParser.InterpolationExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -108,6 +120,30 @@ public class ContentBaseListener implements ContentListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitIfStatement(ContentParser.IfStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCondition(ContentParser.ConditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCondition(ContentParser.ConditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInterpolation(ContentParser.InterpolationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInterpolation(ContentParser.InterpolationContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

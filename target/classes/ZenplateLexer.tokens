@@ -1,6 +1,10 @@
-TEXT=1
-LPRACE=2
-RPRACE=3
-WS=4
-'{'=2
-'}'=3
+T__0=1
+T__1=2
+TEXT=3
+LPRACE=4
+RPRACE=5
+WS=6
+'{%'=1
+'}%'=2
+'{'=4
+'}'=5

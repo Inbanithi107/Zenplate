@@ -52,17 +52,29 @@ public interface ContentListener extends ParseTreeListener {
 	 */
 	void exitMethodCallExpression(ContentParser.MethodCallExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code ifStatementExpression}
+	 * Enter a parse tree produced by the {@code ifstatementExpression}
 	 * labeled alternative in {@link ContentParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterIfStatementExpression(ContentParser.IfStatementExpressionContext ctx);
+	void enterIfstatementExpression(ContentParser.IfstatementExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code ifStatementExpression}
+	 * Exit a parse tree produced by the {@code ifstatementExpression}
 	 * labeled alternative in {@link ContentParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitIfStatementExpression(ContentParser.IfStatementExpressionContext ctx);
+	void exitIfstatementExpression(ContentParser.IfstatementExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code interpolationExpression}
+	 * labeled alternative in {@link ContentParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterpolationExpression(ContentParser.InterpolationExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code interpolationExpression}
+	 * labeled alternative in {@link ContentParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterpolationExpression(ContentParser.InterpolationExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ContentParser#identifier}.
 	 * @param ctx the parse tree
@@ -93,4 +105,24 @@ public interface ContentListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIfStatement(ContentParser.IfStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ContentParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondition(ContentParser.ConditionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ContentParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondition(ContentParser.ConditionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ContentParser#interpolation}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterpolation(ContentParser.InterpolationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ContentParser#interpolation}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterpolation(ContentParser.InterpolationContext ctx);
 }

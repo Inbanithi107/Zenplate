@@ -5,12 +5,19 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Zenplate</name>
   <description>Java based template engine</description>
+
    <dependencies>
     <dependency>
         <groupId>org.antlr</groupId>
         <artifactId>antlr4-runtime</artifactId>
         <version>4.13.2</version>
     </dependency>
+    <dependency>
+    <groupId>org.apache.groovy</groupId>
+    <artifactId>groovy</artifactId>
+    <version>4.0.21</version>
+</dependency>
+
 </dependencies>
 
 <build>

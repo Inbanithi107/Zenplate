@@ -3,22 +3,24 @@ package com.Techforge.Zenplate.Interpreter;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.Techforge.JastraScriptEngine.JastraScriptEngineExecutor;
 import com.Techforge.Zenplate.ZenplateBaseVisitor;
 import com.Techforge.Zenplate.ZenplateParser.PlaceholderContext;
 import com.Techforge.Zenplate.ZenplateParser.StatementContext;
 import com.Techforge.Zenplate.ZenplateParser.TemplateContext;
 import com.Techforge.Zenplate.ZenplateParser.TextContext;
-import com.Techforge.Zenplate.Interpreter.Supporter.ContentExecutor;
+
 
 public class ZenplateEngine extends ZenplateBaseVisitor<String>{
 	
-	private Map<String, Object> context;
 	
 	private final StringBuilder builder;
 	
+	private JastraScriptEngineExecutor excutor;
+	
 	public ZenplateEngine(Map<String, Object> context) {
 		this.builder = new StringBuilder();
-		this.context = context;
+		this.excutor=new JastraScriptEngineExecutor(context);
 	}
 	
 	public ZenplateEngine() {
@@ -28,8 +30,8 @@ public class ZenplateEngine extends ZenplateBaseVisitor<String>{
 	@Override
 	public String visitPlaceholder(PlaceholderContext ctx) {
 		String result = ctx.getText();
-		String content =  result.substring(1, result.length()-1);
-		String output = new ContentExecutor().renderContent(content, context);
+		String content =  result.substring(2, result.length()-2);
+		String output = excutor.execute(content);
 		return output;
 	}
 
