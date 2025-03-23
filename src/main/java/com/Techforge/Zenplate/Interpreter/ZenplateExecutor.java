@@ -17,15 +17,9 @@ import com.Techforge.Zenplate.ZenplateParser;
 
 public class ZenplateExecutor {
 	
-	public static void main(String[] args) {
+	public String  template(String filename, Map<String, Object> context) {
 		
-		String input = "";
-		
-		try {
-			 input = new String(Files.readAllBytes(Paths.get("/Zenplate/src/main/resources/simple.jastra")));
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		String input = new ResourceReader().readResource(filename);
 		
 		CharStream charStream = CharStreams.fromString(input);
 		
@@ -36,16 +30,10 @@ public class ZenplateExecutor {
 		ZenplateParser parser = new ZenplateParser(tokens);
 		 ParseTree tree = parser.template();
 		
-		Map<String, Object> map = new HashMap<>();
-		map.put("username", "inbanithi");
-		map.put("worker", "some");
-		map.put("hello", true);
-		map.put("users", Arrays.asList(new User("kaivn", "1234"), new User("praveen", "4321")));
-		
-		ZenplateEngine engine = new ZenplateEngine(map);
+		ZenplateEngine engine = new ZenplateEngine(context);
 		engine.visit(tree);
-		System.out.println(engine.getTemplate());
-		
+
+		return engine.getTemplate();
 	}
 
 }

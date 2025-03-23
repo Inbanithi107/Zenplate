@@ -13,10 +13,10 @@
         <version>4.13.2</version>
     </dependency>
     <dependency>
-    <groupId>org.apache.groovy</groupId>
-    <artifactId>groovy</artifactId>
-    <version>4.0.21</version>
-</dependency>
+    	<groupId>com.Techforge</groupId>
+    	<artifactId>JastraScriptEngine</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
 
 </dependencies>
 
@@ -36,6 +36,29 @@
                     </configuration>
                 </execution>
             </executions>
+        </plugin>
+        <plugin>
+        	<groupId>org.apache.maven.plugins</groupId>
+        	<artifactId>maven-shade-plugin</artifactId>
+        	<version>3.5.0</version>
+        	<executions>
+        		<execution>
+        			<phase>package</phase>
+        			<goals>
+        				<goal>shade</goal>
+        			</goals>
+        			<configuration>
+        				<artifactSet>
+        					<includes>
+        						<include>org.antlr:antlr4-runtime</include>
+        						<include>com.Techforge:JastraScriptEngine</include>
+        					</includes>
+        				</artifactSet>
+        				<shadedArtifactAttached>true</shadedArtifactAttached>
+        				<shadedClassifierName>with-deps</shadedClassifierName>
+        			</configuration>
+        		</execution>
+        	</executions>
         </plugin>
     </plugins>
 </build>
